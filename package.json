@@ -1,26 +1,30 @@
 {
   "private": true,
   "sideEffects": false,
-  
-    "scripts": {
-      "build": "npm run build:css && remix build",
-      "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
-      "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
-      "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
-    },
- 
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
+  },
   "dependencies": {
+    "@portabletext/react": "^2.0.0",
     "@remix-run/node": "^1.8.1",
     "@remix-run/react": "^1.8.1",
     "@remix-run/vercel": "^1.8.1",
+    "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "@vercel/node": "^2.6.2",
+    "daisyui": "^2.42.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.8.1",
     "@remix-run/eslint-config": "^1.8.1",
     "@remix-run/serve": "^1.8.1",
+    "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.6.0",
     "eslint": "^8.27.0",

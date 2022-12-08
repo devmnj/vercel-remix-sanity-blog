@@ -147,7 +147,7 @@ export default function Post() {
                 defaultValue={data[0]?._id}
                 type="text"
                 className="hidden"
-                readonly
+                readOnly
               ></input>
               <img
                 className="mr-5 h-12 w-12 rounded-full"

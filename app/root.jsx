@@ -7,8 +7,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from './styles/app.css'
-import Navbar from "./components/NavBar";
+ 
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 export function links() {
   return [{ rel: "stylesheet", href: styles }]
 }

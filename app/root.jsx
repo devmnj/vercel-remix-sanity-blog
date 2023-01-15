@@ -15,7 +15,7 @@ export function links() {
 }
 export const meta = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Devtalk",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -58,12 +58,13 @@ function Document({ children }) {
 
 function Layout({ children }) {
   return (
-    <>
+    <div className="">
     <Navbar/>
-    <div className="bg-base-100   overflow-auto flex place-content-center m-2 p-2">     
+    <div className="items-center overflow-auto">     
       {children}
     </div>
-    </>
+    <Footer/>
+    </div>
     
   );
 }

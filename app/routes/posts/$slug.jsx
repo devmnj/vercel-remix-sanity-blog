@@ -9,10 +9,12 @@ import { myPortableComponents } from "~/components/Portable";
 import { RecommendedPosts } from "~/components/Recommended";
  
 export function ErrorBoundary({ error }) {
+ 
+   console.error(error);
   return (
     <div>
-      <h1>Error</h1>
-      <p>{error.message}</p>
+      <h2>Oh snap!</h2>
+     
     </div>
   );
 }
@@ -75,11 +77,11 @@ export default function Post() {
 
   return (
     <>
-      <div className=" max-w-7xl  text-base-content py-16 mx-auto space-y-8">
-        <article className="flex lg:prose-xl">
-          <div>
+      <div className="max-w-7xl text-base-content py-16 px-16 mx-auto">
+        <article  >
+       
             <div className="">
-              <h1 className=" ">{data && data[0]?.title}</h1>
+              <h1 className="text-4xl text-neutral-content font-bold md:tracking-tight pb-3 md:text-5xl">{data && data[0]?.title}</h1>
               <div />
               <div className="flex flex-col items-start text-base-content justify-between w-full md:flex-row md:items-center ">
                 <div className="flex my-2 items-center md:space-x-2">
@@ -110,7 +112,7 @@ export default function Post() {
                 components={myPortableComponents}
               />
             </div>
-          </div>
+          
         </article>
 
         {/* <!-- Tags --> */}

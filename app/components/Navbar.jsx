@@ -16,7 +16,7 @@ export default function Navbar() {
     </div>
   </div>
   <div className="navbar-center">
-    <a href='/' className="btn btn-ghost normal-case text-xl">Remix Sanity Blog</a>
+    <a href='/' className="btn btn-ghost upper-case text-xl">Dev Talk</a>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">

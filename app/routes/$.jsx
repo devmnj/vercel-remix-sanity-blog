@@ -1,13 +1,5 @@
 import React from "react";
-import styles from "../styles/NF.css";
-export const links = () => {
-  return [
-    {
-      rel: "stylesheet",
-      href: styles,
-    },
-  ];
-};
+ 
 export default function NF() {
   return (
     <div className="flex justify-center">

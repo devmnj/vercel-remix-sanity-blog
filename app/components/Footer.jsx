@@ -32,8 +32,11 @@ export default function Footer() {
               <a href="https://github.com/devmnj" className="block mt-2 text-sm  hover:underline"
                 >Github Profile</a
               >
-               
+              {/* <a href="https://gist.github.com/devmnj" className="block mt-2 text-sm  hover:underline"
+                >Gits/Snippets</a
+              > */}
             </div>
+          
   
             <div>
               <div className="text-primary-focus uppercase">Contributions</div>

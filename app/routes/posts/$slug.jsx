@@ -92,7 +92,7 @@ export default function Post() {
                   />
 
                   <p className="  flex justify-items-stretch">
-                    <span className="text-lg"> Manoj AP </span>
+                    <span className="text-lg"> <a href="https://github.com/devmnj">Devmnj </a></span>
                   </p>
                 </div>
                 <p className="flex-shrink-0 mt-3 text-sm md:mt-0" />

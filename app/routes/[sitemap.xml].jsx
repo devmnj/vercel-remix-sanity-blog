@@ -29,13 +29,11 @@ export const loader = async ({request} ) => {
   const domain = `${protocol}://${host}`;
   const postUrl = `${domain}`;
 
-  const postList=data?.map((p)=>
-  `<url>
+  const postList=data?.map((p)=>`<url>
   <loc>${domain}/${p?.slug?.current}</loc>
   <changefreq>daily</changefreq>
   <priority>0.7</priority>)
-  </url>
-  `);
+  </url>`);
 
   const xmlstring =  `<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
@@ -64,5 +62,5 @@ export const loader = async ({request} ) => {
         "encoding": "UTF-8"
         }
       }
-    )
+    );
 }; 

@@ -25,7 +25,7 @@ export const loader = async ({request} ) => {
    
   const postList=data?.map((p)=>
   `<url>
-  <loc>https://localhost:3000/${p?.slug?.current}</loc>
+  <loc>${domain}/${p?.slug?.current}</loc>
   <changefreq>daily</changefreq>
   <priority>0.7</priority>)
   </url>
@@ -52,7 +52,7 @@ export const loader = async ({request} ) => {
       xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
       <url>
-        <loc>https://${postUrl}</loc>
+        <loc>${postUrl}</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>       
       </url> 

@@ -2,27 +2,20 @@ import React from 'react'
 import { useLoaderData } from "@remix-run/react";  
 import client from "~/sanity";
 
- 
-export function ErrorBoundary({ error }) {
- 
+ export function ErrorBoundary({ error }) { 
   console.error(error);
  return (
    <div>
-     <h2>Oh snap!</h2>
-    
+     <h2>Oh snap!</h2>    
    </div>
  );
 }
-
-
 
 export const loader = async ({request} ) => {
   const res = await client.fetch(
     `*[_type == "post"]{title,_createdAt,slug,_id,summary,featured_image} | order(_createdAt desc)`
   );
-
-  const data = await res;
-   
+  const data = await res;   
   const postList=data?.map((p)=>
   `<url>
   <loc>${domain}/${p?.slug?.current}</loc>
@@ -41,7 +34,6 @@ export const loader = async ({request} ) => {
     : "https";
   const domain = `${protocol}://${host}`;
   const postUrl = `${domain}`;
-
   const xmlstring =  `<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
       xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -70,5 +62,4 @@ export const loader = async ({request} ) => {
         }
       }
     )
-
 }; 

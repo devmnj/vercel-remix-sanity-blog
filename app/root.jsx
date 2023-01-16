@@ -17,7 +17,7 @@ export const meta = () => ({
   charset: "utf-8",
   title: "Devtalk",
   viewport: "width=device-width,initial-scale=1",
-  
+  google-site-verification:"6r8yq6e_GqZ3mR4Me1xxwv",
 
 });
 

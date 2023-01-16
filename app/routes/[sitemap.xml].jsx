@@ -16,13 +16,7 @@ export const loader = async ({request} ) => {
     `*[_type == "post"]{title,_createdAt,slug,_id,summary,featured_image} | order(_createdAt desc)`
   );
   const data = await res;   
-  const postList=data?.map((p)=>
-  `<url>
-  <loc>${domain}/${p?.slug?.current}</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.7</priority>)
-  </url>
-  `);
+
   const host =
     request?.headers.get("X-Forwarded-Host") ??
     request?.headers.get("host");
@@ -34,6 +28,15 @@ export const loader = async ({request} ) => {
     : "https";
   const domain = `${protocol}://${host}`;
   const postUrl = `${domain}`;
+
+  const postList=data?.map((p)=>
+  `<url>
+  <loc>${domain}/${p?.slug?.current}</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.7</priority>)
+  </url>
+  `);
+
   const xmlstring =  `<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
       xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"

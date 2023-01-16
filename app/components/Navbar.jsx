@@ -42,7 +42,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-center">
         <a href="/" className="btn btn-ghost upper-case text-xl">
-          Dev Talk
+          Dev Guides
         </a>
       </div>
       <div className="navbar-end">

@@ -1,5 +1,6 @@
 import {
   Links,
+  Link,
   LiveReload,
   useLocation,
   useLoaderData,
@@ -33,7 +34,7 @@ import * as gtag from "~/utils/gtags.client";
 // }
 
 // Load the GA tracking id from the .env
-export const loader = async () => {
+export const loader = async () => { 
   return json({ gaTrackingId: process.env.GA_TRACKING_ID });
 };
 
@@ -71,7 +72,7 @@ function Document({ children }) {
 
    const location = useLocation();
   const { gaTrackingId } = useLoaderData ();
-
+  console.log(gaTrackingId);
   useEffect(() => {
     if (gaTrackingId?.length) {
       gtag.pageview(location.pathname, gaTrackingId);

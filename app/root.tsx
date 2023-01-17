@@ -9,6 +9,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type {LoaderFunction , MetaFunction } from "@remix-run/node";
 import {useEffect} from 'react'
 import styles from './styles/app.css'
  
@@ -34,7 +35,7 @@ import * as gtag from "~/utils/gtags.client";
 // }
 
 // Load the GA tracking id from the .env
-export const loader = async () => { 
+export const loader:LoaderFunction  = async () => { 
   return json({ gaTrackingId: process.env.GA_TRACKING_ID });
 };
 
@@ -43,7 +44,7 @@ export const loader = async () => {
 export function links() {
   return [{ rel: "stylesheet", href: styles }]
 }
-export const meta = () => ({
+export const meta:MetaFunction = () => ({
   charset: "utf-8",
   title: "Devguides",
   viewport: "width=device-width,initial-scale=1",
@@ -71,7 +72,8 @@ export default function App() {
 function Document({ children }) {
 
    const location = useLocation();
-  const { gaTrackingId } = useLoaderData ();
+  const { gaTrackingId } = useLoaderData<typeof loader> ();
+  console.log(process.env.NODE_ENV);
   console.log(gaTrackingId);
   useEffect(() => {
     if (gaTrackingId?.length) {
@@ -85,8 +87,9 @@ function Document({ children }) {
         <Links />
       </head>
       <body>
-            {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
+            { !gaTrackingId ? null : (
           <>
+         
             <script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}

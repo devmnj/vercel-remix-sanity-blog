@@ -4,7 +4,7 @@ export default function Card(props) {
       <div className="lg:flex">
      
       <img
-          className="object-fit w-2/6 h-2/6 md:h-4/6 md:w-5/6 rounded-lg lg:w-2/6 lg:h-5/6"
+          className="object-fit w-2/6 h-2/6 md:h-3/6 md:w-5/6 rounded-lg lg:w-2/6 lg:h-5/6"
           src= {props?.cover}
           alt=""
       />

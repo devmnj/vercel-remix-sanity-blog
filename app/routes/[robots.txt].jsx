@@ -17,7 +17,7 @@ export const loader = ({request}) => {
     // set up our text content that will be returned in the response
         const robotText = `
         User-agent: Googlebot
-        Disallow: /nogooglebot/
+        
     
         User-agent: *
         Allow: /

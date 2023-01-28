@@ -13,7 +13,7 @@ export default function Footer() {
               <a
                 href="/"
                 className="text-xl font-bold  text-base-content  hover:text-gray-700 dark:hover:text-gray-300"
-                >DevTalk</a
+                >DevGuides</a
               >
             </div>
   

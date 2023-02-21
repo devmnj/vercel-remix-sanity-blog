@@ -111,7 +111,7 @@ export default function Post() {
               <p className="flex-shrink-0 mt-3 text-sm md:mt-0" />
             </div>
           </div>
-          <div className="place-content-center flex">
+          <div className="p-3 place-content-between flex bg-gray-700 rounded">
             <img
               className="rounded  object-fill h-2/6 w-3/6"
               src={`${urlFor(data[0]?.featured_image)}`}
@@ -131,7 +131,7 @@ export default function Post() {
                   fill="currentColor"
                 />
               </svg>
-              <p className="text-2xl font-mono text-purple-400 font-black">
+              <p className="text-2xl font-mono text-purple-300 font-black">
                 {data[0]?.summary}
               </p>
             </blockquote>

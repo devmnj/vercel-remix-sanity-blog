@@ -7,14 +7,12 @@ import { urlFor } from "~/ImageBuilder";
 import { redirect } from "@remix-run/node";
 import { myPortableComponents } from "~/components/Portable";
 import { RecommendedPosts } from "~/components/Recommended";
- 
+
 export function ErrorBoundary({ error }) {
- 
-   console.error(error);
+  console.error(error);
   return (
     <div>
       <h2>Oh snap!</h2>
-     
     </div>
   );
 }
@@ -67,24 +65,39 @@ export const loader = async ({ params }) => {
     
     }`
   );
+
   const data = await res;
- 
+
   return data;
 };
 
 export default function Post() {
   const data = useLoaderData();
+  if (data[0]?._id && data[0]?.view) {
+    client
+      .patch(data[0]?._id)
+      .inc({ view: 1 })
+      .commit()
+      .then((updatedPost) => {
+        console.log("Hurray, the Post is updated! New document:");
+        console.log(updatedPost);
+      });
+  }
 
   return (
     <>
       <div className="max-w-7xl text-base-content py-16 px-16 mx-auto">
-        <article  >
-       
-            <div className="">
-              <h1 className="text-4xl text-neutral-content font-bold md:tracking-tight pb-3 md:text-5xl">{data && data[0]?.title}</h1>
-              <div />
-              <div className="flex flex-col items-start text-base-content justify-between w-full md:flex-row md:items-center ">
-                <div className="flex my-2 items-center md:space-x-2">
+        <article>
+          <div className="">
+            <h1
+              className="text-2xl text-neutral-content font-bold md:tracking-tight pb-3 md:text-2xl
+        l"
+            >
+              {data && data[0]?.title}
+            </h1>
+            <div />
+            <div className="flex flex-col items-start text-base-content justify-between w-full md:flex-row md:items-center ">
+              {/* <div className="flex my-2 items-center md:space-x-2">
                   <img
                     src="https://avatars.githubusercontent.com/u/28762625?v=4/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
@@ -94,25 +107,41 @@ export default function Post() {
                   <p className="  flex justify-items-stretch">
                     <span className="text-lg"> <a href="https://github.com/devmnj">Devmnj   </a></span>
                   </p>
-                </div>
-                <p className="flex-shrink-0 mt-3 text-sm md:mt-0" />
-              </div>
+                </div> */}
+              <p className="flex-shrink-0 mt-3 text-sm md:mt-0" />
             </div>
-            <div className="place-content-center flex">
-              <img
-                className="rounded w-9/12 h-1/4"
-                src={`${urlFor(data[0]?.featured_image)}`}
-                alt=" "
-              />
-            </div>
+          </div>
+          <div className="place-content-center flex">
+            <img
+              className="rounded  object-fill h-2/6 w-3/6"
+              src={`${urlFor(data[0]?.featured_image)}`}
+              alt=" "
+            />
 
-            <div className="" id="article">
-              <PortableText
-                value={data[0].content}
-                components={myPortableComponents}
-              />
-            </div>
-          
+            <blockquote className="p-2 text-xl italic font-semibold text-gray-900 dark:text-white">
+              <svg
+                aria-hidden="true"
+                className="w-10 h-10 text-gray-400 dark:text-gray-600"
+                viewBox="0 0 24 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <p className="text-2xl text-blue-200 font-black">
+                {data[0]?.summary}
+              </p>
+            </blockquote>
+          </div>
+          <div className="" id="article">
+            <PortableText
+              value={data[0].content}
+              components={myPortableComponents}
+            />
+          </div>
         </article>
 
         {/* <!-- Tags --> */}

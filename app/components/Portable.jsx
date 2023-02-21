@@ -3,7 +3,7 @@ import Code from '~/components/Code';
 export  const myPortableComponents = {
     block: {
       h1: ({ children }) => (
-        <h1 className="text-3xl text-primary-focus font-bold mt-3 mb-3">
+        <h1 className="text-xl text-primary-focus font-bold mt-3 mb-3">
           {children}
         </h1>
       ),
@@ -13,7 +13,7 @@ export  const myPortableComponents = {
         </h1>
       ),
   
-      normal: ({ children }) => <p className="my-3 text-2xl">{children}</p>,
+      normal: ({ children }) => <p className="my-3 text-lg">{children}</p>,
     },
     types: {
       code: ({ value }) => <Code>{value?.code}</Code>,

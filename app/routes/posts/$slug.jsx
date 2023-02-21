@@ -90,13 +90,13 @@ export default function Post() {
         <article>
           <div className="">
             <h1
-              className="text-2xl text-neutral-content font-bold md:tracking-tight pb-3 md:text-2xl
+              className="text-4xl uppercase text-neutral-content font-bold md:tracking-tight pb-3 md:text-2xl
         l"
             >
               {data && data[0]?.title}
             </h1>
             <div />
-            <div className="flex flex-col items-start text-base-content justify-between w-full md:flex-row md:items-center ">
+            <div className="flex flex-col   items-start text-base-content justify-between w-full md:flex-row md:items-center ">
               {/* <div className="flex my-2 items-center md:space-x-2">
                   <img
                     src="https://avatars.githubusercontent.com/u/28762625?v=4/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -131,7 +131,7 @@ export default function Post() {
                   fill="currentColor"
                 />
               </svg>
-              <p className="text-2xl text-blue-200 font-black">
+              <p className="text-2xl font-mono text-green-400 font-black">
                 {data[0]?.summary}
               </p>
             </blockquote>

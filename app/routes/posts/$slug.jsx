@@ -131,7 +131,7 @@ export default function Post() {
                   fill="currentColor"
                 />
               </svg>
-              <p className="text-2xl font-mono text-green-400 font-black">
+              <p className="text-2xl font-mono text-purple-400 font-black">
                 {data[0]?.summary}
               </p>
             </blockquote>
